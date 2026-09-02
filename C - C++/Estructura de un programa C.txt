@@ -1,0 +1,6 @@
+1. Directivas del pre-procesador
+    "Linker", librerías y definiciones
+2. Declaración de prototipos y funciones
+3. Declaración de variables globales
+4. Funciones definidas por el usuario
+5. Función main()

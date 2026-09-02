@@ -1,0 +1,26 @@
+# --- Ejecutables y binarios ---
+*.exe
+*.out
+*.app
+
+# --- Archivos objeto y de compilación intermedia ---
+*.o
+*.obj
+
+# --- Carpetas de salida de compilación comunes ---
+build/
+bin/
+dist/
+
+# --- Archivos de registro / depuración ---
+*.log
+*.pdb
+
+# --- Archivos temporales del sistema (Windows/macOS) ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Configuración del entorno de desarrollo (VS Code) ---
+.vscode/
