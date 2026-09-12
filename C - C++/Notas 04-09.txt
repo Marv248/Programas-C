@@ -1,0 +1,19 @@
+# Operadores en C 
+///// OPERADORES ARITMÉTICOS //////
+Suma, Resta, Mutliplicación, División, Modulo y Cast
+
+Los operadores se clasifican según la cantidad de variables que usan, pueden ser unarios, binarios y ternarios
+
+El operador Cast es una conversión forzada
+
+///// OPERADORES RELACIONALES //////
+Son comparadores relacionales entre dos variables
+Son:
+    - ==: Igual a
+    - !=: Distinto de 
+    - >: Mayor que 
+    - <: Menor que 
+    - <=: Mayor o igual
+    - >=: Menor o igual
+
+///// OPERADORES LÓGICOS //////

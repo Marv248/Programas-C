@@ -1,0 +1,7 @@
+(),[],->  Alta prioridad
+!,~,+,-,++,--,&,sizeof    Unarios
+<<>>    Corrimientos de bits
+<, <=>, >, =, ==, !=    Relacionales
+&,^,|,&&,||,?,:    Bits/lógico/condicional
+=, *=, /=, %=, +=, -=, &=, ^=, |=, <<=>>, =   Asignación
+'   Evaluación
