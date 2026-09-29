@@ -1,0 +1,40 @@
+//////////////////
+    PREFIX SUM
+//////////////////
+
+En ocasiones es complicado acceder a los valores de una lista de números, obteniendo la suma de sus valores.
+            -----------------------------
+            | 8 | 2 | 1 | 7 | 4 | 6 | 3 |
+            -----------------------------
+La suma de los números hasta un cierto rango r, se puede expresar como la suma sucesiva de estos números.
+Pero en ciertas ocasiones necesitamos hallar el valor de la suma acumulada desde un entero r hasta l.
+
+Pero no es simplemente sumar los valores desde l hasta r, se tienen que restar los valores de r "peso asignado" hasta los de antes que l (l-1)
+prefix[r] - prefix[l-1]
+
+Esta operación se puede repetir con sumas, productos y el operado lógico XOR.
+
+Para el producto, el 0 es un gran problema, ya que de tener al menos un 0, entonces tendremos el producto total con 0.
+
+Para hallar un prefijo de producto debemos de contar la cantidad de 0 (con un prefix sum de 0).
+
+Cada que se encuentra un 0, se reinicia el prefix de producto, al valor siguiente del 0.
+
+        prefix[r]/prefix[l-1]
+Para llevar un orden en el contador de 0 (con el prefijo de suma), se usa un prefijo de suma que suma 1 al acumulado de hallar un 0, y no se suma nada si no es 0.
+
+///////////////////////////////////
+    PREFIX SUM EN 2 DIMENSIONES
+///////////////////////////////////
+
+Para hallar la suma acumulada de los elementos de una matriz nxm, se utiliza la siguiente técnica.
+Se comienza a sumar en una esquina (la superior derecha gráficamente) y se termina en la opuesta, para obtener un valor se suman los acumulados de los valores en_
+    1. ((x-1), y)
+    2. (x, (y-1))
+
+Esto para poder acceder al valor en la posición deseada, pero se debe de sumar "la esquina diagonal" al primer elemento, ya que se está restando dos veces su valor, y debería ser restado una sola vez
+
+Para armar el prefix sum, se deben de sumar los elementos en:
+    1. ((x-1), y)
+    2. (x, (y-1))
+Además, se debe de restar el elemento de la esquina superior diagonal al primer elemento, ya que se está sumando dos veces.

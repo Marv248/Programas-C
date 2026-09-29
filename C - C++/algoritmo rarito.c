@@ -16,7 +16,7 @@ int main(){
                         range = 1;
                     }
                 }
-                for(int j=0; j<r/2; j++0){
+                for(int j=0; j<r/2; j++){
                     list2[j] = j + 1 + r/2;
                     if(n == j+1 + r/2){
                         range = 2;
@@ -29,7 +29,7 @@ int main(){
                         range = 1;
                     }
                 }
-                for(int j=3*(r/4); j<r; j++0){
+                for(int j=3*(r/4); j<r; j++){
                     list2[j] = j + 1 + r/2;
                     if(n == j+1 + r/2){
                         range = 2;

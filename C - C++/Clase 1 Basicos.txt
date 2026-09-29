@@ -1,0 +1,113 @@
+Estructuras de puntos:
+
+struct point{
+    int x;
+    int y;
+    point(int a, int b): x(a), y(b)
+};
+
+point punto(5,6)
+
+Esta estructura permite crear un "nuevo tipo de dato" para automatizar algunas operaciones, es similar a una clase 
+
+\\\VECTORES///
+Es una estructura que almacena datos del mismo tipo 
+vector<int> numeros (10,-1)
+
+Nombre - tamaño - Valor por defecto*
+Usa como argumentos el tamaño del vector y el valor por defecto en el vector
+Es similar a un arreglo, pero de TAMAÑO DINÁMICO (asignan un espacio de memmoria y de necesitar más duplican este espacio almacenado)
+
+Métodos del vector:
+- .push_back(): inserta un elemento al final del vector. O(1)
+- .size(): retorna el tamaño del vector (la cantidad de elementos que almacena). O(1)
+- .emplace_back(): invoca al constructor del tipo de dato del vector, esto para insertar un dato al vector, pero es más tardado que crear una variable del tipo del vector y agregarla con .push_back. O(1)*
+- .empty(): devuelve 1 (true) si está vacío (no hay elementos en el vector) y 0 (false) si hay elementos en el vector
+
+** Se pueden hacer un vector de vectores (matriz) de un tipo de datos específico.
+vector<vector<int>> vectorsillo (10, vector<int>(5,0));
+
+La parte incial declara el vector de vectores de tipo entero, la parte del nombre solamente asigna un nombre arbitrario y la parte del constructor, asigna el tamaño del vector de vectores, luego debería asignar el valor predeterminado, pero asigna el otro vector (debido a la composición de vectores) el cual tiene tamaño 5 y valor predeterminado 0
+Sería algo similar a:
+[
+    (0,0,0,0,0),
+    (0,0,0,0,0),
+    (0,0,0,0,0),
+    ... (EN TOTAL 10 VECES, el tamaño del vector compuesto)
+    (0,0,0,0,0),
+]
+
+\\\\\STACK//////
+Estructura que almacena valores con el principio LIFO (Last Int First Out), de manera similar a un balde donde se insertan los primeros elementos hasta abajo y el último queda arriba, y es este último elemento el que se toma primero (First Out)
+
+Es ampliamente empleada cuando interesa el mantener sus últimos elementos principalmente, pero como desventaja tiene que no se puede acceder a un elemento que no sea la primera salida
+
+Declaración:
+stack<tipo> nombre;
+
+Métodos:
+- .push() - Agrega el número
+- .top() - Retorna la última entrada
+- .pop() - Elimina la última entrada (hasta arriba)
+- .size(), empty(), emplace(): Igual que el vector
+
+
+\\\\\QUEUE/////
+Estructura similar al stack con lógica inversa, esta es FIFO (First In First Out), es similar a una barra de pastillitas, donde solo puedes tomar la de hasta abajo y si necesitas acceder a otra pastilla, debes sacar las anteriores primero
+
+Estructura:
+ queue <tipo> nombre;
+
+ tiene los mismos métodos que el stack, solo que pop elimina el primer elemento (hasta abajo) y push agrega hasta arriba (lo que saldría primero si hicieramos .top())
+
+ \\\\\DEQUE/////
+ Estructura que combina la stack y al queue para poder así acceder al primer y al último elemento almacenado
+
+ Estructura:
+  deque <tipo> nombre;
+
+Métodos:
+ - .push_back(): agrega el elemento hasta abajo
+ - .push_front(): agrega el elemento hasta arriba 
+ - .back(): devuelve el elemento de hasta abajo (el primer elemento)
+ - .front(): devuelve el elemento de hasta arriba (el último elemento)
+
+\\\\\PRIORITY_QUEUE/////
+Es una estructura que almacena según las prioridades del tipo de dato almacenado, guardando hasta arriba (top) los elementos más grandes (en int) y abajo los mas pequeños
+
+Estructura:
+ priority_queue <tipo> nombre;
+
+Tiene los mismos de métodos de las estructuras de almacenamiento mencionadas, pero es importante mecionar que la complejidad de agregar un elemento es O(log n) ya que internamente ejecuta un árbol de ordenamiento para agregar el número según seá el mayor o mecionar
+
+\\\\\SET/////
+Similar a un conjunto en matemáticas, donde el mismo elemento no puede ser repetido, internamente ejecuta un árbol binario balanceado
+Estructura:
+ set <tipo> nombre;
+
+Tiene los mismos métodos que la mayoría de estructuras mencionadas previamente, pero al insertar un elemento tenemos complejidad O(log n)
+
+Es importante mencionar que no se puede acceder a un elemento, pero si se puede preguntar si ese elemento existe en el set, esto mediante el método find(argumento)
+devuelve un apuntador, si encuentra el elemento este apunta a la dirección del elemento, si no existe devuelve el final del set, por eso se suele hacer:
+    if(set.find(algo) != set.end()){
+        código ...
+    }
+
+Para eliminar un elemento, se tiene que confirmar que el elemento existe y que está dentro del conjunto, para luego ejecutar el método:
+ - set.erase(algo);
+
+Para agregar elementos o eliminarlos se tiene una complejidad O(log n)
+
+\\\\\MAP/////
+Estructura similar a hacer un par de set, es como si fuese un vector, pero sin continuidad, esto es no almacena el espacio linealmente, ni totalmente, almacena el espacio de manera flotante (donde haya espacio) y usa el espacio necesario
+
+Estructura:
+  map<tipo1, tipo2> nombre;
+        |     | 
+       key  - dato
+
+reasigna el valor empleado, lo entiendo como que reaccina la dirección o la posición en memoria que usa (mediante la llave) y guarda un valor (dato)
+Sirve para reasignar valores para no limitar la memoria*
+
+Para ver si un elemento está en el map se usa: map.count()
+Regresa dos posibles valores 1 (V) ó 2(F)
