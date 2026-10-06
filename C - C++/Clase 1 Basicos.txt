@@ -38,7 +38,7 @@ Sería algo similar a:
 ]
 
 \\\\\STACK//////
-Estructura que almacena valores con el principio LIFO (Last Int First Out), de manera similar a un balde donde se insertan los primeros elementos hasta abajo y el último queda arriba, y es este último elemento el que se toma primero (First Out)
+Estructura que almacena valores con el principio LIFO (Last In First Out), de manera similar a un balde donde se insertan los primeros elementos hasta abajo y el último queda arriba, y es este último elemento el que se toma primero (First Out)
 
 Es ampliamente empleada cuando interesa el mantener sus últimos elementos principalmente, pero como desventaja tiene que no se puede acceder a un elemento que no sea la primera salida
 
