@@ -1,0 +1,46 @@
+//// NOTAS HECHAS FUERA DE CLASE ////
+
+//////////////////////////
+        TWO POINTERS
+//////////////////////////
+
+Técnica usada en la programación competitiva para reducir la complejidad de algoritmos que requieren de bucles anidados O(N^2) a un recorrido O(N)
+
+Existen 2 Modalidades:
+*** MODALIDAD A ***
+Direcciones opuestas (extremos hacia el centro)
+Se coloca un puntero al inicio (left = 0) y otro al final (right = n-1). Se acercan hasta cruzarce
+    - Caso típico: Arreglos ordenados, problemas de Two sum.
+    - Mecánismo: Si la suma actual de los elementos es mayor a un objetivo establecido, se avanza (left++), de lo contrario se retrocede (right--)
+
+*** MODALIDAD B ***
+Direcciones iguales (Ventana deslizante)
+Ambos punteros inician a la izquierda y se mueven a la derecha con distintos ritmos
+    - Caso típico: Subarreglos continuos con condiciones
+
+////////////
+  EJEMPLO
+////////////
+TWO SUM EN ARREGLO ORDENADO
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool tiene_par_con_suma(const vector<int>& arr, int target) {
+    int left = 0;
+    int right = arr.size() - 1;
+
+    while (left < right) {
+        int suma_actual = arr[left] + arr[right];
+
+        if (suma_actual == target) {
+            return true; // Encontramos el par
+        } else if (suma_actual < target) {
+            left++;  // Necesitamos una suma más grande -> avanzamos por la izquierda
+        } else {
+            right--; // Necesitamos una suma más pequeña -> retrocedemos por la derecha
+        }
+    }
+
+    return false; // No existe tal par
+}
