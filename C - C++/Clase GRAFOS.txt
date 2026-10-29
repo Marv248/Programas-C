@@ -34,3 +34,27 @@ Si se hace global y el problema tiene t casos, sobreescribimos el grafo cada vez
 
 NOTA: ///// COMPONENTES DEL GRAFO \\\\\\
 Subgrafos de un grafo que son conexos (puedes llegar de un nodo a cualquier otro)
+
+/////////// BFS \\\\\\\\\\\\\\\
+Se parte de un vértice conocido (puede ser cualquier vértice), consiste en dos fases que se repiten en cada vértice:
+- Visita
+- Exploración
+
+***Visita:
+    Consiste en registrar el vértice como ya visitado, sirve para poder saber si se puede llegar a un vértice o no
+ 
+***Exploracion:
+    Consiste en visitar a los grafos a los que se puede acceder desde el grafo actual, el orden en que se exploran los grafos no importan.
+    En sí, es como el registrar los vértices a los que si se puede llegar para luego hacer una visita.
+
+Para programar, se usa la estructura de datos QUEUE (cola) para almacenar los vértices visitados.
+Para empezar, se registra el mismo grafo en el que se inicia.
+Luego, se EXPLORAN los vértices "vecinos".
+    El propósito es construir un árbol partiendo de un grafo, es como si acomodaramos en un arbol con copa en el vértice de inicio los vértices a los que si puede visitar.
+Cada vértice que es VISITADO en la exploración se arregla a nuestra QUEUE (no importa el orden)
+    Cuando ya no hay más vértices vecinos que los explorados se dice que nuestro vértice está completamente explorados
+    Entonces ya está completada la iteración del vértice
+    Cuando un vértice está explorado, se borra de la QUEUE (por eso es que se usan colas, para primer registro disponible y agregar hasta arriba)
+Luego se selecciona el primer vértice que se guardó de los explorados, se EXPLORA ahora este vértice
+    Este proceso es ITERATIVO y repetitivo, esto significa que se repite este proceso hasta 
+    Cabe resaltar que si un vértice ya está visitado no se vuelve a marcar como visitado (no se arregla a la QUEUE)
