@@ -1,0 +1,36 @@
+/////////// MATRIZ DE ADYACENCIA \\\\\\\\\\\\\\\
+
+Hacer una matriz (vector de vectores) y registrar las "coordenadas" de las relaciones
+
+Complejidad v^2 Ya que recorre dos veces los nodos
+
+Para buscar si un nodo está conectado con otro, tenemos complejidad O(1)
+Para buscar las conexiones de un nodo tenemos complejidad O(V)
+
+
+/////////// Lista DE ADYACENCIA \\\\\\\\\\\\\\\
+Hace una lista de las conexiones que tiene cada nodo
+Su complijidad de espacio es O(V+E) ya que cada nodo registra a parte de él a las aristas
+Su complejidad de consulta e iteración es O(deg(v)) ya que para ver si un nodo está conectado con otro o no debemos de checar su lista de conexiones (de longitud deg(v))
+
+
+
+CÓDIGO
+
+int n, m;
+cin >> n >> m;
+
+vector<vector<int>> grafo (n);
+for(int i =0; i<n; i++){
+    int u, v;
+    cin >> u >> v;
+    grafo[u].pushback(v); --v para cero indexado
+    // grafo[v].pushback(u) para sistemas bidireccionales
+}
+
+EL vector puede ser global  o dentro de una función
+Si se hace global y el problema tiene t casos, sobreescribimos el grafo cada vez
+
+
+NOTA: ///// COMPONENTES DEL GRAFO \\\\\\
+Subgrafos de un grafo que son conexos (puedes llegar de un nodo a cualquier otro)
