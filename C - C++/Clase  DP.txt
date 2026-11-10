@@ -1,0 +1,80 @@
+Programación dinámica (DP): preparación para tu próxima clase
+La programación dinámica (Dynamic Programming, DP) es una de las técnicas más importantes de algoritmia competitiva. 
+Al principio puede parecer una colección de fórmulas que hay que memorizar, pero la idea central es más sencilla:
+    DP consiste en resolver un problema a partir de subproblemas más pequeños, 
+    guardando sus resultados para no volver a calcularlos.
+
+Un ejemplo clásico es la sucesión de fibonacci, donde se determina F(n) = F(n-1) + F(n-2)
+El algoritmo clásico de función recursiva para fibonacci tiene complejidad O(2^n), 
+mientras que con DP la complejidad es O(n)
+
+No todo problema puede resolverse mediante DP de forma útil. Las dos señales clásicas son:
+
+1. Subproblemas superpuestos. Los mismos subproblemas aparecen varias veces. Fibonacci es el ejemplo típico.
+
+2. Subestructura óptima. Una solución óptima al problema puede construirse a partir de soluciones óptimas de subproblemas, 
+   respetando las decisiones y restricciones del problema.
+
+///// Las partes de una solución de DP \\\\\\
+1. Estado: ¿qué necesito recordar?
+    Defines qué representa cada resultado almacenado. 
+    Por ejemplo, dp[i] podría representar la cantidad máxima de dinero que puedes obtener considerando los primeros i objetos.
+
+
+2. Transición: ¿cómo llego al estado?
+    Expresas un resultado usando otros estados ya resueltos. 
+    En Fibonacci, la transición es F(i)=F(i-1)+F(i-2).
+
+
+3. Casos base: ¿qué conozco desde el principio?
+    Son estados que puedes resolver directamente. 
+    En Fibonacci, F(0)=0 y F(1)=1.
+
+
+4. Orden de cálculo: ¿qué debo resolver primero?
+    Debes calcular los subproblemas antes que los estados que dependen de ellos, 
+    ya sea mediante recursión con memoria o de forma iterativa.
+
+////// Los dos enfoques clásicos de DP \\\\\\
+Memoización (top-down)
+    Empiezas con el problema original y lo divides recursivamente en subproblemas. 
+    Cada vez que resuelves uno, guardas su resultado.
+        - Conserva la estructura natural de la recursión.
+        - Solo calcula los estados que realmente necesita.
+        - Puede consumir memoria de pila por las llamadas recursivas.
+    Ejemplo: calcular Fibonacci recursivamente, pero guardar cada término calculado.
+
+Tabulación (bottom-up)
+    Construyes una tabla y calculas primero los casos más pequeños. Después avanzas hacia los más grandes.
+        - Evita la recursión.
+        - Hace explícito el orden de cálculo.
+        - Puede calcular estados que finalmente no necesites.
+    Ejemplo: calcular F(0), F(1), F(2), F(3) y continuar hasta F(n).
+
+////// Tipos de DP \\\\\\
+No existe una clasificación única y universal de la programación dinámica. 
+En los clubes puede referirse a la forma del estado, al problema que se resuelve o a la estructura de la transición.
+
+Estos son los patrones fundamentales que conviene reconocer:
+    - DP unidimensional
+        El estado depende de un índice, como dp[i] 
+        Aparece en sucesiones, escaleras y problemas donde avanzas por una secuencia.
+
+    - DP bidimensional
+        El estado tiene dos dimensiones, como dp[i][j] 
+        Es común en cuadrículas, comparación de cadenas y problemas que consideran dos índices.
+
+    - DP de mochila (knapsack)
+        Decides qué elementos seleccionar respetando una capacidad o PRESUPUESTO. 
+        El estado suele considerar los elementos procesados y la capacidad restante.
+
+    - DP sobre árboles o grafos
+        Calculas resultados por vértice a partir de otros vértices, siguiendo una estructura de dependencias. 
+        En árboles, por ejemplo, un estado puede resumir la mejor solución para un subárbol.
+
+///// DP frente a Greedy: la diferencia más importante \\\\\
+Ambos son paradigmas de algoritmos y pueden resolver problemas de optimización, pero toman decisiones de forma diferente.
+- Greedy (voraz): toma una decisión que parece la mejor en el momento actual y continúa, 
+    sin reconsiderar las decisiones anteriores.
+- DP: compara las alternativas relevantes mediante subproblemas y conserva suficiente 
+    información para construir una solución óptima.
