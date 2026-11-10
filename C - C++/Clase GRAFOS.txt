@@ -35,7 +35,7 @@ Si se hace global y el problema tiene t casos, sobreescribimos el grafo cada vez
 NOTA: ///// COMPONENTES DEL GRAFO \\\\\\
 Subgrafos de un grafo que son conexos (puedes llegar de un nodo a cualquier otro)
 
-/////////// BFS \\\\\\\\\\\\\\\
+                                    /////////// BFS \\\\\\\\\\\\\\\
 Se parte de un vértice conocido (puede ser cualquier vértice), consiste en dos fases que se repiten en cada vértice:
 - Visita
 - Exploración
@@ -58,3 +58,17 @@ Cada vértice que es VISITADO en la exploración se arregla a nuestra QUEUE (no 
 Luego se selecciona el primer vértice que se guardó de los explorados, se EXPLORA ahora este vértice
     Este proceso es ITERATIVO y repetitivo, esto significa que se repite este proceso hasta 
     Cabe resaltar que si un vértice ya está visitado no se vuelve a marcar como visitado (no se arregla a la QUEUE)
+
+
+
+
+
+
+                                    /////////// DFS \\\\\\\\\\\\\\\
+La estructura principal usada es el stack (pila LIFO) 
+Se puede comenzar el recorrido partiendo de cualquier vértice
+Se comienza por estudiar a los vértices adyacentes, pero de una forma especial, cuando se empieza a explorar un nuevo vértice, este se explora.
+Esto es, cuando se ha alcanzado un nuevo vértice, se explora este vértice.
+Se almacenan los vértices que ya se ha explorado un nuevo vértice en el stack, para así volver a explorarlos despues.
+Cuando ya se encuentren nuevos vértices adyacentes al actual, se regresa al vértice anterior
+Se elimina el vértice anterior al regresar a este vértice
