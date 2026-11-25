@@ -10,12 +10,14 @@ int binarySearch(int arr[], int t, int n) {
         printf("Mitad: %d\n", m);
         if(arr[m] == t) return m;
         
-        if(arr[m] < t)
+        if(arr[m] < t){
             printf("%d es mayor que la mitad %d\n", t, arr[m]);
             l = m + 1;
-        else
+        }
+        else{
             printf("%d es menor que la mitad %d\n", t, arr[m]);
             r = m - 1;
+        }
     }
     printf("El numero %d no se encuentra en el arreglo.\n", t);
     return -1;
